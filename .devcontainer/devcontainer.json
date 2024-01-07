@@ -1,0 +1,23 @@
+{
+	"name": "overleaf",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "common",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	// Use this environment variable if you need to bind mount your local source code into a new container.
+	"remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+			"version": "latest",
+			"enableNonRootDocker": "true",
+			"moby": "true"
+		},
+		"ghcr.io/devcontainers/features/sshd:1": {
+			"version": "latest"
+		},
+		"github-cli": "latest"
+	},
+	// 端口映射
+	"forwardPorts": [80],
+}
